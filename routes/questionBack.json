@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "question": "nodeJS的全局对象是什么",
+    "typeone": "window",
+    "typetwo": "window",
+    "typethree": "window",
+    "typefour": "`1`",
+    "answer": "A"
+  },
+  {
+    "id": "2",
+    "question": "hello world",
+    "typeone": "window",
+    "typetwo": "window",
+    "typethree": "window",
+    "typefour": "window",
+    "answer": "A"
+  },
+  {
+    "id": "3",
+    "question": "nodeJS的全局对象是什么",
+    "typeone": "window",
+    "typetwo": "window",
+    "typethree": "window",
+    "typefour": "window",
+    "answer": "A"
+  },
+  {
+    "id": "4",
+    "question": "nodeJS的全局对象是什么",
+    "typeone": "window",
+    "typetwo": "window",
+    "typethree": "window",
+    "typefour": "window",
+    "answer": "A"
+  },
+  {
+    "id": "5",
+    "question": "nodeJS的全局对象是什么",
+    "typeone": "window",
+    "typetwo": "window",
+    "typethree": "window",
+    "typefour": "window",
+    "answer": "A"
+  },
+  {
+    "id": "6",
+    "question": "nodeJS的全局对象是什么",
+    "typeone": "window",
+    "typetwo": "window",
+    "typethree": "window",
+    "typefour": "window",
+    "answer": "A"
+  }
+]

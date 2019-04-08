@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+    }
+    .box{
+      width: 100vw;
+      height: 50vh;
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
+    }
+    .span-item {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-left:10px;
+      /* border-radius: 50%; */
+      background: black;
+      opacity: .6;
+   
+    }
+
+    .span-item:nth-child(1) {
+      animation: boxStyle 1s linear 0s infinite alternate;
+    }
+    .span-item:nth-child(2) {
+      animation: boxStyle1 1s linear 0s infinite alternate;
+    }
+    
+    /* .span-item:nth-child(3) {
+      animation: boxStyle 1s ease-in-out 2s infinite;
+    }
+    .span-item:nth-child(4) {
+      animation: boxStyle 1s ease-in-out 3s infinite;
+    }
+    .span-item:nth-child(5) {
+      animation: boxStyle 1s ease-in-out 4s infinite;
+    } */
+
+    @keyframes boxStyle{
+      0% {
+        transform: translate3d(0px, 10px, 0px) scale(1) rotate(0deg);
+      }
+      
+      100% {
+        transform: translate3d(0px, 10px, 100px) scale(1.5) rotate(180deg);
+      }
+    }
+    /* @keyframes boxStyle1{
+      0% {
+        transform: translateX(0) scale(1);
+      }
+      50% {
+        transform: translate3d(-30px, 0, 0px) scale(1.5);
+      }
+      100% {
+        transform: translate3d(-60px, 0, 0px) scale(1.5);
+      }
+    } */
+
+   
+  
+  
+  
+  </style>
+</head>
+<body>
+  
+   <div class="box">
+      <div class="circlesup">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+   </div>
+
+   
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="stylesheet" href="/iconfont/font/iconfont.css">
+  <link rel="shortcut icon" href="/images/fav.ico">
+</head>
+<body>
+  <div class="wrap">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <!-- file_box -->
+    <div class="file_box">
+      <span class="icon_span iconfont icon-shangchuan">
+        <h3>点击上传文件或者将文件拖拽到此处</h3>
+      </span>
+      <input type="file" class="inputDom">
+    </div>
+
+    <!-- dialog -->
+    <!-- <div class="dialog">
+      <div class="mask"></div>
+      <div class="tip">
+        <span class="tip_loading"></span>
+        <span class="tip_loading"></span>
+        <span class="tip_loading"></span>
+      </div>
+    </div> -->
+
+  </div>
+
+
+
+
+  <script src="/javascripts/jquery.min.js"></script>
+  <script>
+
+    class FileUpload {
+      init() {
+        this.uploadFn()
+        this.bindInputChange()
+        this.dragFn()
+        this.loading = `<div class="dialog">
+                          <div class="mask"></div>
+                          <div class="tip">
+                            <span class="tip_loading"></span>
+                            <span class="tip_loading"></span>
+                            <span class="tip_loading"></span>
+                          </div>
+                        </div>`
+      }
+      uploadFn() {
+        console.log('我是上传函数')
+      }
+
+      dialogFn() {
+         
+      }
+
+      maskFn() {
+
+      }
+
+      dragFn() {
+        let file_box = document.querySelector('.file_box');
+        file_box.ondragover = function (e) {
+          e.preventDefault();
+        }
+        file_box.ondrop = function (e) {
+          console.log(e.dataTransfer.files)
+        }
+      }
+
+      fileReaderFn(file) {
+        let that = this;
+        var fr = new FileReader();
+        fr.readAsDataURL(file);
+        fr.onload = function (event) {
+          var data = event.target.result; //此处获得的data是base64格式的数据
+          // var base = new Base64();
+          // box.innerHTML = base.decode(data)
+          $.ajax({
+            url: 'http://localhost:8080/upload',
+            type: "post",
+            data: {
+              fileList: data
+            },
+            success: function (res) {
+              console.log(res)
+              $(that.loading).appendTo('.wrap');
+              setTimeout(function() {
+                $('.dialog').remove()
+              }, 3000)
+            }
+          })
+        }
+      }
+
+      bindInputChange() {
+        let that = this;
+        $('.inputDom').on('change', function () {
+          let file = this.files[0];
+          that.fileReaderFn(file)
+        })
+      }
+    }
+
+    let fileFn = new FileUpload();
+    fileFn.init()
+
+  </script>
+</body>
+
+</html>

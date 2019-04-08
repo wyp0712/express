@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/exam.css">
+  <% include ./favicon.html %>
+
+  <title><%= title %></title>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <header class="header">
+      <h1><%= title %></h1>
+    </header>
+
+    <main class="main">
+      <!-- 定义一组数组 -->
+
+      <% data.forEach(item => { %>
+      <h2><%= item.id%> . <%= item.question %></h2>
+      <p>
+        <span class="item"></span>
+        A. <%= item.typeone %>
+      </p>
+      <p>
+        <span class="item"></span>
+        B. <%= item.typetwo %>
+      </p>
+      <p>
+        <span class="item"></span>
+        C. <%= item.typethree %>
+      </p>
+      <p>
+        <span class="item"></span>
+        D. <%= item.typefour %>
+      </p>
+
+
+      <% }) %>
+      <!-- <h2> 1. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</h2>
+      <p>
+        <span class="item"></span>
+        A. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</p>
+      <p>
+        <span class="item">
+
+        </span>
+        B. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</p>
+      <p>
+        <span class="item">
+
+        </span>
+        C. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</p>
+      <p>
+        <span class="item">
+
+        </span>
+        D. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦
+      </p> -->
+    </main>
+
+
+
+    <div class="page_box">
+      <span>上一页</span>
+      <span>下一页</span>
+    </div>
+    <footer class="footer">
+
+    </footer>
+
+
+
+
+
+
+  </div>
+
+  <script src="/javascripts/jquery.min.js"></script>
+  <script>
+
+
+    class ExamFn {
+      init() {
+
+        this.isSelectFn()
+      }
+
+      isSelectFn() {
+        $('.item').on('click', function () {
+          $('.item').removeClass('success');
+          $(this).addClass('success')
+        })
+      }
+
+    }
+
+    let examfn = new ExamFn()
+    examfn.init()
+
+
+  </script>
+
+
+</body>
+
+</html>

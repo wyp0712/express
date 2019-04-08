@@ -1,0 +1,72 @@
+@import './reset.scss';
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  height: calc(.4rem *2);
+  background: lightblue;
+  text-align: center;
+  line-height:  calc(.4rem *2);
+}
+.main {
+  flex:1;
+  overflow: auto;
+  padding: 20px;
+}
+
+.footer{
+  height: calc(.4rem *2);
+  background: lightblue;
+}
+
+.page_box{
+  width: 100%;
+  height: calc(.6rem *2);
+  font-size: 16px;
+  font-weight: bold;
+
+  span {
+    display: inline-block;
+    width: 49%;
+    height: calc(.6rem *2);
+    text-align: center;
+    line-height:calc(.6rem *2);
+    border-top:1px solid #ccc;
+  }
+}
+
+h1 {
+  font-size: 20px;
+}
+p {
+  text-align: left;
+  padding: 10px;
+  line-height: calc(.25rem *2);
+  margin-top:calc(.15rem *2);
+  position: relative;
+  margin-left:calc(.1rem *2);
+}
+.item{
+  display: inline-block;
+  width: calc(.2rem *2);
+  height: calc(.2rem *2);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin: 0 calc(0.05rem *2);
+  cursor: pointer;
+  position: absolute;
+  left: calc(-0.2rem * 2);
+  top: calc(.13rem *2);
+}
+
+.success{
+  background: green;
+}
+.warning {
+  background: red;
+}

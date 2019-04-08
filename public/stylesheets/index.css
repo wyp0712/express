@@ -1,0 +1,331 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0;
+  font-family: STHeitiSC-Light;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html,
+body,
+form,
+fieldset,
+p,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-text-size-adjust: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  font-family: arial, sans-serif;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+ins,
+a {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  display: inline-block;
+}
+
+input,
+textarea {
+  border: none;
+  background: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+  -ms-tap-highlight-color: transparent;
+  -o-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none;
+  user-select: none;
+}
+
+/* 750-> 1rem = 100px  375-> 1rem = 50px */
+html {
+  font-size: calc(100 / 750 * 100vw);
+}
+
+body {
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.dialog {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog .mask {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: .6;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.dialog .tip {
+  width: 80%;
+  height: 77%;
+  border-radius: 10px;
+  background: #fff;
+  z-index: 1;
+  background: url("/images/wx-xifuer.jpeg") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog .tip .tip_loading {
+  width: calc(.3rem *2);
+  height: calc(.3rem *2);
+  border-radius: 50%;
+  background: #e67561;
+}
+
+.tip_loading:nth-child(1) {
+  animation: loading1 1s ease-in 0s infinite alternate;
+}
+
+.tip_loading:nth-child(2) {
+  animation: loading2 1s ease-in 0s infinite alternate;
+}
+
+.tip_loading:nth-child(3) {
+  animation: loading3 1s linear 0s infinite alternate;
+}
+
+.tip_loading:nth-child(4) {
+  animation: loading1 .5s linear 0.4s infinite alternate;
+}
+
+@keyframes loading1 {
+  0% {
+    transform: translate(10px);
+  }
+  100% {
+    transform: translate(150px);
+  }
+}
+
+@keyframes loading2 {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+
+@keyframes loading3 {
+  0% {
+    transform: translate(-10px);
+  }
+  100% {
+    transform: translate(-150px);
+  }
+}
+
+.wrap {
+  height: 100%;
+  font-size: 14px;
+}
+
+.header {
+  width: 100%;
+  height: calc(.4rem *2);
+  background: lightblue;
+  text-align: center;
+  line-height: calc(.4rem *2);
+}
+
+.file_box {
+  margin: calc(.1rem *2) 0;
+  width: calc(7.5rem - 0.4rem *2);
+  height: calc(2rem *2);
+  border: 1px dashed #ccc;
+  position: relative;
+  border-radius: 4px;
+}
+
+.file_box .icon_span {
+  display: block;
+  width: calc(7.5rem - 0.4rem *2);
+  height: calc(2rem *2);
+  position: absolute;
+  font-size: 75px;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  text-align: center;
+  line-height: calc(1.5rem *2);
+}
+
+.file_box .icon_span h3 {
+  position: absolute;
+  left: calc(.6rem *2);
+  top: calc(.6rem *2);
+  font-size: 14px;
+}
+
+.file_box .inputDom {
+  opacity: 0;
+  border: none;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 100%;
+}

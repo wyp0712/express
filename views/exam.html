@@ -19,65 +19,54 @@
     </header>
 
     <main class="main">
-      <!-- 定义一组数组 -->
+      <div class="kemu-item">
+        <ul class="item-header cl">
+          <li class="title fl">科目一</li>
+          <li class="desc fl">小车理论考试</li>
+          <li class="fr">
+            <a class="more" href="/mnks/kemu1/car-shanghai.html">更多</a>
+          </li>
+        </ul>
+        <ul class="item-content cl">
+          <li class="fl"><a class="item-order" href="/mnks/exercise/0-car-kemu1-shanghai.html">顺序练习</a></li>
+          <li class="fl"><a class="item-chapter" href="/mnks/chapter/car-kemu1-shanghai.html">章节练习</a></li>
+          <li class="fl"><a class="item-special" href="/mnks/strengthen/car-kemu1-shanghai.html">专项练习</a></li>
+          <li class="fl"><a class="item-simulation" href="/mnks/exam/car-kemu1-shanghai.html">全真模拟</a></li>
+        </ul>
+      </div>
 
-      <% data.forEach(item => { %>
+
+      <!-- 定义一组数组 -->
+      <!-- <% data.forEach(item => { %>
       <h2><%= item.id%> . <%= item.question %></h2>
       <p>
-        <span class="item"></span>
+        <span class="item" data-answer="A"></span>
         A. <%= item.typeone %>
       </p>
+
       <p>
-        <span class="item"></span>
+        <span class="item" data-answer="B"></span>
         B. <%= item.typetwo %>
       </p>
       <p>
-        <span class="item"></span>
+        <span class="item" data-answer="C"></span>
         C. <%= item.typethree %>
       </p>
       <p>
-        <span class="item"></span>
+        <span class="item" data-answer="D"></span>
         D. <%= item.typefour %>
       </p>
+      <% }) %> -->
 
-
-      <% }) %>
-      <!-- <h2> 1. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</h2>
-      <p>
-        <span class="item"></span>
-        A. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</p>
-      <p>
-        <span class="item">
-
-        </span>
-        B. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</p>
-      <p>
-        <span class="item">
-
-        </span>
-        C. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦</p>
-      <p>
-        <span class="item">
-
-        </span>
-        D. promise中的缺点报道九分裤大煞风景收到啦风刀霜剑啊看风景的时刻promise中的缺点报道九分裤大煞风景收到啦
-      </p> -->
     </main>
 
 
 
     <div class="page_box">
-      <span>上一页</span>
-      <span>下一页</span>
+      <span class="prev">上一页</span>
+      <span class="next">下一页</span>
     </div>
-    <footer class="footer">
-
-    </footer>
-
-
-
-
-
+    <footer class="footer"></footer>
 
   </div>
 
@@ -85,23 +74,49 @@
   <script>
 
 
-    class ExamFn {
-      init() {
 
+    class ExamFn {
+
+      constructor() {
+        this.init()
+      }
+
+      init() {
         this.isSelectFn()
+        this.nextFn()
       }
 
       isSelectFn() {
+        let that = this;
         $('.item').on('click', function () {
           $('.item').removeClass('success');
-          $(this).addClass('success')
+          $(this).addClass('success');
+          let itemAnswer = $(this).attr('data-answer');
+          $('.next').attr('data-answer', itemAnswer)
         })
       }
 
+      uploadAnswer(answer) {
+        $.ajax({
+          url: "http://localhost:8080/exam/answer_item",
+          type: "post",
+          data: {},
+          success: function (res) {
+            console.log(res, 'res')
+          }
+        })
+      }
+
+      nextFn() {
+        let that = this;
+        $('.next').on('click', function () {
+          let item = $('.next').attr('data-answer')
+          that.uploadAnswer(item)
+        })
+      }
     }
 
     let examfn = new ExamFn()
-    examfn.init()
 
 
   </script>

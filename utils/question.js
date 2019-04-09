@@ -9,9 +9,7 @@ function renderQuestion(url) {
   return new Promise((resolve, reject) => {
     fs.readFile(url, 'utf-8', function (err, data) {
       // 读取文件失败/错误
-      if (err) {
-        reject(err);
-      }
+      if (err) throw err
       resolve(data)
     });
   })

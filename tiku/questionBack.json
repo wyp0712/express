@@ -2,7 +2,7 @@
   {
     "id": "1",
     "question": "nodeJS的全局对象是什么",
-    "typeone": "window",
+    "typeone": "global",
     "typetwo": "window",
     "typethree": "window",
     "typefour": "`1`",

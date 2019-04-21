@@ -24,7 +24,7 @@ router.post('/',urlencodedParser,function(req, res, next) {
   // })
   // console.log(fileList, 'fileList-------------1')
 
-  res.send('post-上传文件接口信息')
+  res.send(fileList)
 })
 
 module.exports = router;

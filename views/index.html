@@ -42,6 +42,10 @@
   <script>
 
     class FileUpload {
+      constructor() {
+
+      }
+      
       init() {
         this.uploadFn()
         this.bindInputChange()
@@ -71,6 +75,12 @@
         let file_box = document.querySelector('.file_box');
         file_box.ondragover = function (e) {
           e.preventDefault();
+        }
+        file_box.ondragenter = function() {
+          file_box.style.background = 'red'
+        }
+        file_box.ondragleave = function() {
+          file_box.style.background = ''
         }
         file_box.ondrop = function (e) {
           console.log(e.dataTransfer.files)

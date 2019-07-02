@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
-var pageData = require('../Mock/page');
+var pageData = require('../Mock/movie-home.json');
+
+// console.log(pageData, 'pageData')
 
 var jsonParser = bodyParser.json()
   
@@ -68,6 +70,17 @@ router.post("/admin", urlencodedParser, function(req, res, next) {
   res.send("hello world")
 })
 
+// router.get('/page', function(req,res,next) {
+//   let { page, size } = req.query;
+//    console.log(page, size, 'page-=========')
+//    var list = pageList.list.filter((n, index) => index < page * size && index >= (page - 1) * size);
+    
+//   //  res.render('index', { title: list });
+//    //  res.send({
+//   //    list: list
+//   //  })
+// })
+
 let arr = [
   {
     "name": "devin",
@@ -128,13 +141,15 @@ router.get('/api/canvas', function(req, res, next) {
 })
 
 
-router.get('/pageIndex', function(req, res, next) {
-  let {page, size} = req.query;
-  console.log(page, size, 'page')
-  let list = pageList.filter((n, index) => {
+router.post('/pageIndex', function(req, res, next) {
+  console.log(req.body,'req.body')
+  let {page, size} = req.body;
+
+  // let listData = JSON.parse(pageData);
+  // console.log(listData, 'listData')
+  let list = canvasData.filter((n, index) => {
     return index >= (page-1) * size && index < page * size
   })
-  console.log(list, 'list')
   res.send({
     list: list,
     count: list.length,
